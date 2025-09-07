@@ -1,30 +1,10 @@
 import { useEffect, useState } from "react";
-// import { getBooks, deleteBook } from "../services/api";
+import { getBooks, deleteBook } from "../services/api";
 import { Link } from "react-router-dom";
 
 function BookList() {
   const [books, setBooks] = useState([]);
-  useEffect(() => {
-    // Dummy data for testing before backend is ready
-    const dummyBooks = [
-      { _id: "1", title: "Clean Code", author: "Robert C. Martin", price: 350, seller: "Amit" },
-      { _id: "2", title: "JavaScript: The Good Parts", author: "Douglas Crockford", price: 250, seller: "Priya" },
-      { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-       { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-   
-
-    ];
-    setBooks(dummyBooks);
-  }, []);
+  
 
   useEffect(() => {
     loadBooks();

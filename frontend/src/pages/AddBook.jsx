@@ -1,19 +1,10 @@
 import { useState } from "react";
-// import { addBook } from "../services/api";
+import { addBook } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 function AddBook() {
   const [form, setForm] = useState({ title: "", author: "", price: "", seller: "" });
   const navigate = useNavigate();
-//   useEffect(() => {
-//     // Dummy data for testing before backend is ready
-//     const dummyBooks = [
-//       { _id: "1", title: "Clean Code", author: "Robert C. Martin", price: 350, seller: "Amit" },
-//       { _id: "2", title: "JavaScript: The Good Parts", author: "Douglas Crockford", price: 250, seller: "Priya" },
-//       { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-//     ];
-//     setBooks(dummyBooks);
-//   }, []);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 

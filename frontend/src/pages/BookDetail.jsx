@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { getBookById } from "../services/api";
+import { getBookById } from "../services/api";
 
 function BookDetail() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
-  useEffect(() => {
-    // Dummy data for testing before backend is ready
-    const dummyBooks = [
-      { _id: "1", title: "Clean Code", author: "Robert C. Martin", price: 350, seller: "Amit" },
-      { _id: "2", title: "JavaScript: The Good Parts", author: "Douglas Crockford", price: 250, seller: "Priya" },
-      { _id: "3", title: "Introduction to Algorithms", author: "Thomas H. Cormen", price: 500, seller: "Rahul" },
-    ];
-    setBooks(dummyBooks);
-  }, []);
+  
 
   useEffect(() => {
     const fetchBook = async () => {
