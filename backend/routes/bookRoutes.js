@@ -1,11 +1,12 @@
-import express from "express";
-import { addBook, getBooks, getBookById, deleteBook } from "../controllers/bookController.js";
+const express = require("express");
+const {addBook, getBooks, getBookById, deleteBook} = require("../controllers/bookController.js");
+const {protect} = require("../middleware/authMiddleware.js");
 
 const router = express.Router();
 
-router.post("/", addBook);
+router.post("/", protect, addBook);   // only logged-in user can add
 router.get("/", getBooks);
 router.get("/:id", getBookById);
-router.delete("/:id", deleteBook);
+router.delete("/:id", protect, deleteBook); // only logged-in user can delete
 
-export default router;
+module.exports = router;
