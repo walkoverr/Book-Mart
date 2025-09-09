@@ -1,7 +1,7 @@
-import Book from "../models/Book.js";
+const Book = require("../models/Book.js");
 
 
-export const addBook = async (req, res) => {
+const addBook = async (req, res) => {
   try {
     const book = new Book(req.body);
     await book.save();
@@ -11,8 +11,7 @@ export const addBook = async (req, res) => {
   }
 };
 
-
-export const getBooks = async (req, res) => {
+const getBooks = async (req, res) => {
   try {
     const books = await Book.find();
     res.json(books);
@@ -21,7 +20,7 @@ export const getBooks = async (req, res) => {
   }
 };
 
-export const getBookById = async (req, res) => {
+const getBookById = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
     if (!book) return res.status(404).json({ error: "Book not found" });
@@ -31,8 +30,7 @@ export const getBookById = async (req, res) => {
   }
 };
 
-
-export const deleteBook = async (req, res) => {
+const deleteBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id);
     if (!book) {
@@ -43,3 +41,5 @@ export const deleteBook = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
+module.exports = { addBook, getBooks, getBookById, deleteBook };
