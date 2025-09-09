@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api" // later replace with deployed backend URL
+  baseURL: "https://book-mart-1h2v.onrender.com/api" // later replace with deployed backend URL
 });
 
 export const getBooks = () => API.get("/books");
