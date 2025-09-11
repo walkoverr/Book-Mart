@@ -1,14 +1,24 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";   // 👈 import Link
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
+  const { user, logout } = useContext(AuthContext);
+
   return (
-    <nav className="bg-blue-600 p-4 flex justify-between items-center">
-      <h1 className="text-white font-bold text-lg">📚 BookMart</h1>
-      <div className="space-x-4">
-        <Link to="#" className="text-white hover:underline">MyBooks</Link>
-        <Link to="/" className="text-white hover:underline">Book List</Link>
-        <Link to="/add" className="text-white hover:underline">Add Book</Link>
-      </div>
+    <nav style={{ padding: "10px", background: "#f5f5f5" }}>
+      <Link to="/">Book List</Link>
+      {user ? (
+        <>
+          <Link to="/add">Add Book</Link>
+          <button onClick={logout}>Logout</button>
+        </>
+      ) : (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+        </>
+      )}
     </nav>
   );
 }
