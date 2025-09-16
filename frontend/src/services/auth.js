@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/users"
+  baseURL: "https://book-mart-1h2v.onrender.com/api"
 });
 
-export const signup = (userData) => API.post("/signup", userData);
-export const login = (userData) => API.post("/login", userData);
+export const signup = (userData) => API.post("/users/signup", userData);
+export const login = (userData) => API.post("/users/login", userData);
