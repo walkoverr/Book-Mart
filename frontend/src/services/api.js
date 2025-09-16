@@ -3,7 +3,7 @@ import axios from "axios";
 const API = axios.create({
   // https://book-mart-1h2v.onrender.com
   // http://localhost:5000
-  baseURL: "https://book-mart-1h2v.onrender.com/api/books"
+  baseURL: "https://book-mart-1h2v.onrender.com/api"
 });
 
 // Add token to requests if available
