@@ -9,10 +9,13 @@ const userRoutes = require("./routes/userRoutes.js");
 
 dotenv.config();
 const app = express();
-
+const allowedOrigins = [
+  "https://book-mart-rose.vercel.app", // <== your deployed frontend
+  "http://localhost:5173",                  // for local dev (optional)
+];
 app.use(cors(
   {
-    origin: "*",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }
